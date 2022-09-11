@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Message } from '@dev/api-interfaces';
+import { MAIN_MENU_NAVIGATION } from './application/routing/navigation';
 
 @Component({
   selector: 'dev-root',
@@ -8,6 +7,6 @@ import { Message } from '@dev/api-interfaces';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  hello$ = this.http.get<Message>('/api/hello');
-  constructor(private http: HttpClient) {}
+  navigation = MAIN_MENU_NAVIGATION;
+
 }
