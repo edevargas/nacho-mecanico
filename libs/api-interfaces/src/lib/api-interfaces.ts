@@ -23,7 +23,7 @@ export interface MechanicService extends Identifiable, HistoricalTraceability {
 }
 
 export interface ServiceByMechanic extends Identifiable, HistoricalTraceability {
-  mechanicId: number;
-  serviceId: number;
-  availabilityDates: Date[];
+  mechanicId: string;
+  serviceId: string;
+  availabilityDates?: Date[];
 }

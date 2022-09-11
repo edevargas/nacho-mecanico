@@ -17,7 +17,7 @@ export class MechanicServicesService {
   }
 
   findOne(id: string) {
-    return this.mockMechanicServices.find((widget) => widget.id === id);
+    return this.mockMechanicServices.find((mechanicService) => mechanicService.id === id);
   }
 
   create(mechanicService: MechanicService) {

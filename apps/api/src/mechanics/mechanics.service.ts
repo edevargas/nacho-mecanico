@@ -1,26 +1,35 @@
+import { Mechanic } from '@dev/api-interfaces';
 import { Injectable } from '@nestjs/common';
-import { CreateMechanicDto } from './dto/create-mechanic.dto';
-import { UpdateMechanicDto } from './dto/update-mechanic.dto';
+import { v4 as uuidv4 } from 'uuid';
 
 @Injectable()
 export class MechanicsService {
-  create(createMechanicDto: CreateMechanicDto) {
-    return 'This action adds a new mechanic';
-  }
+  mockMechanic: Mechanic[] = [
+    { id: '1', name: 'Juan', lastName: 'Lara', email: "mechanic01@nachomecanico.com", creationDate: new Date(2022, 1, 1) },
+    { id: '2', name: 'Manuel', lastName: 'Hernández', email: "mechanic02@nachomecanico.com", creationDate: new Date(2022, 1, 1) },
+    { id: '3', name: 'Camila', lastName: 'Durán', email: "mechanic03@nachomecanico.com", creationDate: new Date(2022, 1, 1) },
+  ];
 
   findAll() {
-    return `This action returns all mechanics`;
+    return this.mockMechanic;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} mechanic`;
+  findOne(id: string) {
+    return this.mockMechanic.find((mechanic) => mechanic.id === id);
   }
 
-  update(id: number, updateMechanicDto: UpdateMechanicDto) {
-    return `This action updates a #${id} mechanic`;
+  create(mechanic: Mechanic) {
+    this.mockMechanic = [...this.mockMechanic, Object.assign({}, mechanic, { id: uuidv4() })];
+    return this.mockMechanic;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} mechanic`;
+  update(id: string, mechanic: Mechanic) {
+    this.mockMechanic = this.mockMechanic.map((w) => (w.id === id ? mechanic : w));
+    return this.mockMechanic;
+  }
+
+  remove(id: string) {
+    this.mockMechanic = this.mockMechanic.filter((mechanic) => mechanic.id !== id);
+    return this.mockMechanic;
   }
 }
