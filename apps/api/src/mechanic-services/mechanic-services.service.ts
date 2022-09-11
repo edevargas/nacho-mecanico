@@ -1,27 +1,33 @@
+import { MechanicService } from '@dev/api-interfaces';
 import { Injectable } from '@nestjs/common';
-import { CreateMechanicServiceDto } from './dto/create-mechanic-service.dto';
-import { UpdateMechanicServiceDto } from './dto/update-mechanic-service.dto';
+import { v4 as uuidv4 } from 'uuid';
+
 
 @Injectable()
 export class MechanicServicesService {
 
-  create(createMechanicServiceDto: CreateMechanicServiceDto) {
-    return 'This action adds a new mechanicService';
+  mockMechanicServices: MechanicService[] = [
+    { id: '1', name: 'Mechanic Service 01', description: 'This is a Mechanic Service', creationDate: new Date(2022, 1, 1) },
+    { id: '2', name: 'Mechanic Service 02', description: 'This is a Mechanic Service', creationDate: new Date(2022, 1, 1) },
+    { id: '3', name: 'Mechanic Service 03', description: 'This is a Mechanic Service', creationDate: new Date(2022, 1, 1) },
+  ];
+
+  findOne(id: string) {
+    return this.mockMechanicServices.find((widget) => widget.id === id);
   }
 
-  findAll() {
-    return `This action returns all mechanicServices`;
+  create(mechanicService: MechanicService) {
+    this.mockMechanicServices = [...this.mockMechanicServices, Object.assign({}, mechanicService, { id: uuidv4() })];
+    return this.mockMechanicServices;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} mechanicService`;
+  update(id: string, mechanicService: MechanicService) {
+    this.mockMechanicServices = this.mockMechanicServices.map((w) => (w.id === id ? mechanicService : w));
+    return this.mockMechanicServices;
   }
 
-  update(id: number, updateMechanicServiceDto: UpdateMechanicServiceDto) {
-    return `This action updates a #${id} mechanicService`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} mechanicService`;
+  remove(id: string) {
+    this.mockMechanicServices = this.mockMechanicServices.filter((mechanicService) => mechanicService.id !== id);
+    return this.mockMechanicServices;
   }
 }

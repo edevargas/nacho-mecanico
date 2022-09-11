@@ -1,11 +1,11 @@
 export interface Identifiable {
-  id: number;
+  id: string;
 }
 
 export interface HistoricalTraceability {
   creationDate: Date;
-  modificationDate: Date;
-  modifiedBy: number;
+  modificationDate?: Date;
+  modifiedBy?: number;
 }
 export interface Message {
   message: string;
