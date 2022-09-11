@@ -3,6 +3,8 @@
   "projects": {
     "api": "apps/api",
     "api-interfaces": "libs/api-interfaces",
+    "clients": "apps/clients",
+    "clients-e2e": "apps/clients-e2e",
     "dashboard": "apps/dashboard",
     "dashboard-e2e": "apps/dashboard-e2e"
   }
