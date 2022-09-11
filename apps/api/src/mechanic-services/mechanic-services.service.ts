@@ -12,6 +12,10 @@ export class MechanicServicesService {
     { id: '3', name: 'Mechanic Service 03', description: 'This is a Mechanic Service', creationDate: new Date(2022, 1, 1) },
   ];
 
+  findAll() {
+    return this.mockMechanicServices;
+  }
+
   findOne(id: string) {
     return this.mockMechanicServices.find((widget) => widget.id === id);
   }
