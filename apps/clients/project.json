@@ -5,7 +5,9 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/clients",
         "index": "apps/clients/src/index.html",
@@ -13,8 +15,13 @@
         "polyfills": "apps/clients/src/polyfills.ts",
         "tsConfig": "apps/clients/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
-        "assets": ["apps/clients/src/favicon.ico", "apps/clients/src/assets"],
-        "styles": ["apps/clients/src/styles.scss"],
+        "assets": [
+          "apps/clients/src/favicon.ico",
+          "apps/clients/src/assets"
+        ],
+        "styles": [
+          "apps/clients/src/styles.scss"
+        ],
         "scripts": []
       },
       "configurations": {
@@ -71,12 +78,17 @@
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": ["apps/clients/**/*.ts", "apps/clients/**/*.html"]
+        "lintFilePatterns": [
+          "apps/clients/**/*.ts",
+          "apps/clients/**/*.html"
+        ]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/clients"],
+      "outputs": [
+        "coverage/apps/clients"
+      ],
       "options": {
         "jestConfig": "apps/clients/jest.config.ts",
         "passWithNoTests": true

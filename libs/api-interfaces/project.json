@@ -5,8 +5,13 @@
     "lint": {
       "executor": "@angular-devkit/build-angular:tslint",
       "options": {
-        "tsConfig": ["libs/api-interfaces/tsconfig.lib.json"],
-        "exclude": ["**/node_modules/**", "!libs/api-interfaces/**/*"]
+        "tsConfig": [
+          "libs/api-interfaces/tsconfig.lib.json"
+        ],
+        "exclude": [
+          "**/node_modules/**",
+          "!libs/api-interfaces/**/*"
+        ]
       }
     }
   },
