@@ -17,6 +17,7 @@
     "paths": {
       "@dev/api-interfaces": ["libs/api-interfaces/src/index.ts"],
       "@dev/core-data": ["libs/core-data/src/index.ts"],
+      "@dev/core-data/services": ["libs/core-data/src/lib/services/index.ts"],
       "@dev/core-state": ["libs/core-state/src/index.ts"],
       "@dev/material": ["libs/material/src/index.ts"]
     }

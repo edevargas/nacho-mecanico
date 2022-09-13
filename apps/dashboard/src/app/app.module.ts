@@ -5,7 +5,8 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RoutingModule } from './application/routing/routing.module';
-import { MaterialModule } from 'libs/material/src';
+import { MaterialModule } from '@dev/material';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,7 +17,12 @@ import { MaterialModule } from 'libs/material/src';
     RoutingModule,
     MaterialModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: 'apiUrl',
+      useValue: environment.apiUrl,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

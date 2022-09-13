@@ -7,9 +7,9 @@ import { v4 as uuidv4 } from 'uuid';
 export class MechanicServicesService {
 
   mockMechanicServices: MechanicService[] = [
-    { id: '1', name: 'Mechanic Service 01', description: 'This is a Mechanic Service', creationDate: new Date(2022, 1, 1) },
-    { id: '2', name: 'Mechanic Service 02', description: 'This is a Mechanic Service', creationDate: new Date(2022, 1, 1) },
-    { id: '3', name: 'Mechanic Service 03', description: 'This is a Mechanic Service', creationDate: new Date(2022, 1, 1) },
+    { id: '1', name: 'Latoneria', description: 'This is a Mechanic Service', creationDate: new Date(2022, 1, 1) },
+    { id: '2', name: 'Pintura', description: 'This is a Mechanic Service', creationDate: new Date(2022, 1, 1) },
+    { id: '3', name: 'Revisión Tecnicomecánica', description: 'This is a Mechanic Service', creationDate: new Date(2022, 1, 1) },
   ];
 
   findAll() {
