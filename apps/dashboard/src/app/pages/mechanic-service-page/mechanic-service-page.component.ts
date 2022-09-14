@@ -19,27 +19,47 @@ export class MechanicServicePageComponent implements OnInit {
   readonly = false;
 
   selectedService: MechanicService = {};
+  originalName: string | undefined;
 
   ngOnInit(): void {
+    this.getAllServices();
+  }
+
+  getAllServices() {
     this.mechanicServicesService.all()
       .subscribe(services => this.mechanicServices = services)
   }
 
   selectService(service: MechanicService) {
-    this.selectedService = service;
-    alert(`El Servicio: ${service.name} fue seleccionado`)
+    this.originalName = service.name;
+    this.selectedService = {...service};
   }
 
   deleteService(service: MechanicService) {
-    alert(`El Servicio: ${service.name} fue eliminado`)
+    this.mechanicServicesService.delete(service)
+    .subscribe(() => {
+      alert(`Servicio ${service.name} eliminado`)
+      this.getAllServices();
+    });
   }
 
   save(service?: MechanicService) {
     if(!service) return;
-    alert(`El Servicio: ${service.name} fue guardado`)
+    if(service.id)
+      this.mechanicServicesService.update(service)
+        .subscribe(() => {
+          alert(`Servicio ${service.name} actualizado`)
+          this.getAllServices();
+        });
+    else
+      this.mechanicServicesService.create(service)
+        .subscribe(() => {
+          alert(`Servicio ${service.name} creado`)
+          this.getAllServices();
+        });
   }
 
   cancel() {
-    alert('Cancelado')
+    this.selectedService = {};
   }
 }

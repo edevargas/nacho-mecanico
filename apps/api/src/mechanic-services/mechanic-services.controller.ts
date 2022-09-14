@@ -1,5 +1,5 @@
 import { MechanicService } from '@dev/api-interfaces';
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Put } from '@nestjs/common';
 import { MechanicServicesService } from './mechanic-services.service';
 
 @Controller('mechanic-services')
@@ -21,7 +21,7 @@ export class MechanicServicesController {
     return this.mechanicServicesService.findOne(id);
   }
 
-  @Patch(':id')
+  @Put(':id')
   update(@Param('id') id: string, @Body() mechanicService: MechanicService) {
     return this.mechanicServicesService.update(id, mechanicService);
   }

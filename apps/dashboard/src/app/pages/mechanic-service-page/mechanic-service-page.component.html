@@ -26,7 +26,7 @@
   <mat-card id="service-detail">
     <mat-card-title>
       <span *ngIf="selectedService.id; else elseBlock">
-        Editando {{ selectedService.name }}
+        Editando {{ originalName }}
       </span>
       <ng-template #elseBlock>
         Selecciona un Servicio
