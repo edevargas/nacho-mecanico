@@ -1,0 +1,7 @@
+<div id="grid-container">
+  <ng-container *ngFor="let service of services">
+    <dev-mechanic-service-card [service]="service" (selected)="selected.emit($event)">
+    </dev-mechanic-service-card>
+  </ng-container>
+
+</div>

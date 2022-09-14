@@ -1,11 +1,9 @@
-<dev-mechanic-services-list
+<dev-mechanic-service-grid-cards
   [services]="(mechanicServices$ | async) || []"
   [readonly]="true"
   (selected)="selectService($event)"
-></dev-mechanic-services-list>
+></dev-mechanic-service-grid-cards>
 
 <ng-container *ngIf="(selectedService$ | async) || false">
-  <dev-mechanic-service-card
-  [service]="(selectedService$ | async) || {}"
-  ></dev-mechanic-service-card>
+  Selected {{(selectedService$ | async)?.name }}
 </ng-container>

@@ -28,7 +28,7 @@ export class MechanicServicesFacadeService {
     });
   }
 
-  selectService(service: MechanicService) {
+  selectService(service: MechanicService | null) {
     this.selectedService$.next({...service});
   }
 

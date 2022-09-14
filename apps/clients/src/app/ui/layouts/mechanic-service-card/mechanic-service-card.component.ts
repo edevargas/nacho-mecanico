@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MechanicService } from '@dev/api-interfaces';
 import { MaterialModule } from '@dev/material';
 
@@ -12,4 +12,6 @@ import { MaterialModule } from '@dev/material';
 })
 export class MechanicServiceCardComponent {
   @Input() service: MechanicService = {};
+  @Output() selected = new EventEmitter<MechanicService | null>();
+  isSelected = false;
 }

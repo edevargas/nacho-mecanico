@@ -6,11 +6,12 @@ import { MechanicServicesFacadeService } from '@dev/core-data/facades';
 import { MechanicService } from '@dev/api-interfaces';
 import { MechanicServiceCardComponent } from '../../ui/layouts/mechanic-service-card/mechanic-service-card.component';
 import { tap } from 'rxjs';
+import { MechanicServiceGridCardsComponent } from '../../ui/layouts/mechanic-service-grid-cards/mechanic-service-grid-cards.component';
 
 @Component({
   selector: 'dev-our-services-page',
   standalone: true,
-  imports: [CommonModule, CommonUiModule, MaterialModule, MechanicServiceCardComponent],
+  imports: [CommonModule, CommonUiModule, MaterialModule, MechanicServiceCardComponent, MechanicServiceGridCardsComponent],
   providers: [MechanicServicesFacadeService],
   templateUrl: './our-services-page.component.html',
   styleUrls: ['./our-services-page.component.scss'],
@@ -29,7 +30,7 @@ export class OurServicesPageComponent implements OnInit {
     this.mechanicServicesFacade.getAllServices();
   }
 
-  selectService(service: MechanicService) {
+  selectService(service: MechanicService | null) {
     this.mechanicServicesFacade.selectService(service);
   }
 

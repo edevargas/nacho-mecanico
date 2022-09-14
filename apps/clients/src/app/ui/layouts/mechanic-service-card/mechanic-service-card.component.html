@@ -1,4 +1,4 @@
-<mat-card class="service-card">
+<mat-card class="service-card" (click)="selected.emit(service)">
   <mat-card-subtitle>Service</mat-card-subtitle>
   <mat-card-title>{{service.name}}</mat-card-title>
   <mat-card-content>
