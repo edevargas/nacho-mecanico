@@ -1,15 +1,20 @@
 <section class="container">
   <dev-mechanic-services-list
-    [services]="mechanicServices"
+    [services]="(mechanicServices$ | async) || []"
     [readonly]="false"
     (selected)="selectService($event)"
     (deleted)="deleteService($event)"
   ></dev-mechanic-services-list>
 
   <dev-mechanic-services-detail
-    [service]="selectedService"
+    [service]="(selectedService$ | async) || {}"
     (cancelled)="cancel()"
     (saved)="save($event)"
   ></dev-mechanic-services-detail>
 
 </section>
+
+<section class="indicators">
+  <p *ngIf="loading$ | async">Loading...</p>
+</section>
+
