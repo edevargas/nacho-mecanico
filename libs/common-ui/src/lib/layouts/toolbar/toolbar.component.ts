@@ -10,5 +10,5 @@ import { MaterialModule } from '@dev/material';
   styleUrls: ['./toolbar.component.scss'],
 })
 export class ToolbarComponent {
-  @Output() toggle = new EventEmitter<boolean>();
+  @Output() toolbarToggle = new EventEmitter<boolean>();
 }

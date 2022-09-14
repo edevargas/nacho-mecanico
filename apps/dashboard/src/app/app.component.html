@@ -1,26 +1,5 @@
-<dev-toolbar (toogle)="sidenav.toggle()"></dev-toolbar>
+<dev-toolbar (toolbarToggle)="sidenav.toggle()"></dev-toolbar>
 <mat-sidenav-container>
-  <mat-sidenav #sidenav [opened]="true" mode="side" class="app-sidenav">
-    <ng-container>
-      <span class="sidenav-title">
-        <h3>Administrador</h3>
-      </span>
-
-      <mat-divider></mat-divider>
-      <mat-nav-list>
-        <mat-list-item
-          *ngFor="let menuItem of navigation"
-          [routerLink]="menuItem.path"
-          routerLinkActive="active"
-        >
-          <mat-icon matListIcon>{{ menuItem.icon }}</mat-icon>
-          {{ menuItem.title | uppercase }}
-        </mat-list-item>
-      </mat-nav-list>
-    </ng-container>
-  </mat-sidenav>
-
-  <mat-sidenav-content>
+  <dev-sidenav #sidenav [navigation]="navigation" [title]="'Administrador'">
     <router-outlet></router-outlet>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+  </dev-sidenav>
