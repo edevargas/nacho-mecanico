@@ -20,7 +20,9 @@
           "apps/clients/src/assets"
         ],
         "styles": [
-          "apps/clients/src/styles.scss"
+          "apps/clients/src/styles.scss",
+          "libs/material/src/material-styles.scss",
+          "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
         ],
         "scripts": []
       },
