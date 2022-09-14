@@ -1,1 +1,11 @@
-<p>our-services-page works!</p>
+<dev-mechanic-services-list
+  [services]="(mechanicServices$ | async) || []"
+  [readonly]="true"
+  (selected)="selectService($event)"
+></dev-mechanic-services-list>
+
+<ng-container *ngIf="(selectedService$ | async) || false">
+  <dev-mechanic-service-card
+  [service]="(selectedService$ | async) || {}"
+  ></dev-mechanic-service-card>
+</ng-container>

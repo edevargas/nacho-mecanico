@@ -8,7 +8,6 @@ import { RoutingModule } from './application/routing/routing.module';
 import { CommonUiModule } from '@dev/common-ui';
 import { MaterialModule } from '@dev/material';
 import { environment } from '../environments/environment';
-
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -17,7 +16,7 @@ import { environment } from '../environments/environment';
     BrowserAnimationsModule,
     RoutingModule,
     MaterialModule,
-    CommonUiModule
+    CommonUiModule,
   ],
   providers: [
     {
