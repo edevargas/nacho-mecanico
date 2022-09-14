@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MaterialModule } from '@dev/material';
 import { CommonUiModule } from '@dev/common-ui';
 import { MechanicServicesFacadeService } from '@dev/core-data/facades';
-import { MechanicService } from '@dev/api-interfaces';
+import { Mechanic, MechanicService } from '@dev/api-interfaces';
 import { MechanicServiceCardComponent } from '../../ui/layouts/mechanic-service-card/mechanic-service-card.component';
 import { tap } from 'rxjs';
 import { MechanicServiceGridCardsComponent } from '../../ui/layouts/mechanic-service-grid-cards/mechanic-service-grid-cards.component';
@@ -19,9 +19,10 @@ import { MechanicServiceGridCardsComponent } from '../../ui/layouts/mechanic-ser
 export class OurServicesPageComponent implements OnInit {
 
   mechanicServices$ = this.mechanicServicesFacade.allMechanicServices$;
-  selectedService$ = this.mechanicServicesFacade.selectedService$.pipe(tap(val => console.log(val)));
+  selectedService$ = this.mechanicServicesFacade.selectedService$.pipe(tap( val => this._selectedService = val));
   error$ = this.mechanicServicesFacade.error$;
   loading$ = this.mechanicServicesFacade.loading$;
+  _selectedService: MechanicService | null = null;
 
   constructor(private mechanicServicesFacade: MechanicServicesFacadeService) {
   }
@@ -30,7 +31,7 @@ export class OurServicesPageComponent implements OnInit {
     this.mechanicServicesFacade.getAllServices();
   }
 
-  selectService(service: MechanicService | null) {
+  selectService(service: MechanicService) {
     this.mechanicServicesFacade.selectService(service);
   }
 

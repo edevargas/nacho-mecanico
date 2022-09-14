@@ -12,6 +12,6 @@ import { MaterialModule } from '@dev/material';
 })
 export class MechanicServiceCardComponent {
   @Input() service: MechanicService = {};
-  @Output() selected = new EventEmitter<MechanicService | null>();
+  @Output() selected = new EventEmitter<MechanicService>();
   isSelected = false;
 }

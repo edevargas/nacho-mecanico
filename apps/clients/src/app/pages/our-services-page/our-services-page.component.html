@@ -4,6 +4,7 @@
   (selected)="selectService($event)"
 ></dev-mechanic-service-grid-cards>
 
-<ng-container *ngIf="(selectedService$ | async) || false">
-  Selected {{(selectedService$ | async)?.name }}
+<ng-container *ngIf="(selectedService$ | async) && _selectedService">
+    Selected {{_selectedService.name }}
 </ng-container>
+

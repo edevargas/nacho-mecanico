@@ -14,6 +14,6 @@ import { MechanicServiceCardComponent } from '../mechanic-service-card/mechanic-
 export class MechanicServiceGridCardsComponent {
   @Input() services: MechanicService[] = [];
   @Input() readonly = false;
-  @Output() selected = new EventEmitter<MechanicService | null>();
+  @Output() selected = new EventEmitter<MechanicService>();
   @Output() deleted = new EventEmitter<MechanicService>();
 }
