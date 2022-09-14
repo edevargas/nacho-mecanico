@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RoutingModule } from './application/routing/routing.module';
 import { MaterialModule } from '@dev/material';
 import { environment } from '../environments/environment';
+import { CommonUiModule } from '@dev/common-ui';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,7 +16,8 @@ import { environment } from '../environments/environment';
     HttpClientModule,
     BrowserAnimationsModule,
     RoutingModule,
-    MaterialModule
+    MaterialModule,
+    CommonUiModule
   ],
   providers: [
     {

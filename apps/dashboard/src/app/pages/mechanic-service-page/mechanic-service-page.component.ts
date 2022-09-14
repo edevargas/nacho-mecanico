@@ -2,10 +2,9 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MechanicService } from '@dev/api-interfaces';
+import { CommonUiModule } from '@dev/common-ui';
 import { MechanicServicesFacadeService } from '@dev/core-data/facades';
 import { MaterialModule } from '@dev/material';
-import { MechanicServicesDetailComponent } from '../../shared/mechanic-services/mechanic-services-detail/mechanic-services-detail.component';
-import { MechanicServicesListComponent } from '../../shared/mechanic-services/mechanic-services-list/mechanic-services-list.component';
 
 
 @Component({
@@ -15,8 +14,7 @@ import { MechanicServicesListComponent } from '../../shared/mechanic-services/me
     CommonModule,
     MaterialModule,
     FormsModule,
-    MechanicServicesListComponent,
-    MechanicServicesDetailComponent],
+    CommonUiModule],
     providers: [MechanicServicesFacadeService],
   templateUrl: './mechanic-service-page.component.html',
   styleUrls: ['./mechanic-service-page.component.scss'],
