@@ -1,9 +1,9 @@
 export interface Identifiable {
-  id: string;
+  id?: string;
 }
 
 export interface HistoricalTraceability {
-  creationDate: Date;
+  creationDate?: Date;
   modificationDate?: Date;
   modifiedBy?: number;
 }
@@ -18,8 +18,8 @@ export interface Mechanic extends Identifiable, HistoricalTraceability {
 }
 
 export interface MechanicService extends Identifiable, HistoricalTraceability {
-  name: string;
-  description: string;
+  name?: string;
+  description?: string;
 }
 
 export interface ServiceByMechanic extends Identifiable, HistoricalTraceability {

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { MechanicService } from '@dev/api-interfaces';
+import { throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -24,10 +25,12 @@ export class MechanicServicesService {
   }
 
   update(mechanicService: MechanicService) {
+    if(!mechanicService.id) return throwError(() => "El servicio no contiene id válido");
     return this.http.put(this.getUrlWithId(mechanicService.id), mechanicService);
   }
 
   delete(mechanicService: MechanicService) {
+    if(!mechanicService.id) return throwError(() => "El servicio no contiene id válido");
     return this.http.delete(this.getUrlWithId(mechanicService.id));
   }
 
