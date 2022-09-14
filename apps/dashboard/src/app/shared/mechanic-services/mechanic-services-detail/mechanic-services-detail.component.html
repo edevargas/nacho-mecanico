@@ -1,0 +1,38 @@
+<mat-card id="service-detail">
+  <mat-card-title>
+    <span *ngIf="_service.id; else elseBlock">
+      Editando {{ _originalName }}
+    </span>
+    <ng-template #elseBlock>
+      Selecciona un Servicio
+    </ng-template>
+  </mat-card-title>
+  <form #form="ngForm" (submit)="saved.emit(_service)">
+    <mat-card-content>
+      <mat-form-field class="full-width">
+        <input
+          matInput
+          placeholder="Title"
+          [(ngModel)]="_service.name"
+          type="text"
+          name="title"
+          required />
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <input
+          matInput
+          placeholder="Description"
+          [(ngModel)]="_service.description"
+          type="text"
+          name="description"
+          required />
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <button [disabled]="form.invalid" type="submit" mat-button color="primary">Save</button>
+      <button type="button" mat-button (click)="form.reset();cancelled.emit(true)">
+        Cancel
+      </button>
+    </mat-card-actions>
+  </form>
+</mat-card>

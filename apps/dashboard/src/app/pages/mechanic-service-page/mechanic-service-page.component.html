@@ -1,65 +1,15 @@
 <section class="container">
-  <mat-card id="services-list">
-    <mat-card-title>
-      Servicios
-    </mat-card-title>
-    <mat-card-content>
-      <mat-list>
-        <mat-list-item
-          *ngFor="let service of mechanicServices"
-          class="mat-list-option"
-          (click)="selectService(service)">
-          <span matLine>{{ service.name }}</span>
-          <button
-            *ngIf="!readonly"
-            mat-icon-button
-            type="button"
-            color="warn"
-            (click)="deleteService(service); $event.stopImmediatePropagation()">
-            <mat-icon>clear</mat-icon>
-          </button>
-        </mat-list-item>
-      </mat-list>
-    </mat-card-content>
-  </mat-card>
+  <dev-mechanic-services-list
+    [services]="mechanicServices"
+    [readonly]="false"
+    (selected)="selectService($event)"
+    (deleted)="deleteService($event)"
+  ></dev-mechanic-services-list>
 
-  <mat-card id="service-detail">
-    <mat-card-title>
-      <span *ngIf="selectedService.id; else elseBlock">
-        Editando {{ originalName }}
-      </span>
-      <ng-template #elseBlock>
-        Selecciona un Servicio
-      </ng-template>
-    </mat-card-title>
-    <form #form="ngForm" (submit)="save(selectedService)">
-      <mat-card-content>
-        <mat-form-field class="full-width">
-          <input
-            matInput
-            placeholder="Title"
-            [(ngModel)]="selectedService.name"
-            type="text"
-            name="title"
-            required />
-        </mat-form-field>
-        <mat-form-field class="full-width">
-          <input
-            matInput
-            placeholder="Description"
-            [(ngModel)]="selectedService.description"
-            type="text"
-            name="description"
-            required />
-        </mat-form-field>
-      </mat-card-content>
-      <mat-card-actions>
-        <button [disabled]="form.invalid" type="submit" mat-button color="primary">Save</button>
-        <button type="button" mat-button (click)="form.reset();cancel()">
-          Cancel
-        </button>
-      </mat-card-actions>
-    </form>
-  </mat-card>
+  <dev-mechanic-services-detail
+    [service]="selectedService"
+    (cancelled)="cancel()"
+    (saved)="save($event)"
+  ></dev-mechanic-services-detail>
 
 </section>

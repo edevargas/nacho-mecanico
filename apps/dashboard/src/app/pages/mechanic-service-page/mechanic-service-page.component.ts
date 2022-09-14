@@ -4,12 +4,19 @@ import { FormsModule } from '@angular/forms';
 import { MechanicService } from '@dev/api-interfaces';
 import { MechanicServicesService } from '@dev/core-data/services';
 import { MaterialModule } from '@dev/material';
+import { MechanicServicesDetailComponent } from '../../shared/mechanic-services/mechanic-services-detail/mechanic-services-detail.component';
+import { MechanicServicesListComponent } from '../../shared/mechanic-services/mechanic-services-list/mechanic-services-list.component';
 
 
 @Component({
   selector: 'dev-mechanic-service-page',
   standalone: true,
-  imports: [CommonModule, MaterialModule, FormsModule],
+  imports: [
+    CommonModule,
+    MaterialModule,
+    FormsModule,
+    MechanicServicesListComponent,
+    MechanicServicesDetailComponent],
   templateUrl: './mechanic-service-page.component.html',
   styleUrls: ['./mechanic-service-page.component.scss'],
 })

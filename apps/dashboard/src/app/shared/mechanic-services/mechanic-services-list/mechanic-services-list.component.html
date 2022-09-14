@@ -1,0 +1,23 @@
+<mat-card id="services-list">
+  <mat-card-title>
+    Servicios
+  </mat-card-title>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item
+        *ngFor="let service of services"
+        class="mat-list-option"
+        (click)="selected.emit(service)">
+        <span matLine>{{ service.name }}</span>
+        <button
+          *ngIf="!readonly"
+          mat-icon-button
+          type="button"
+          color="warn"
+          (click)="deleted.emit(service); $event.stopImmediatePropagation()">
+          <mat-icon>clear</mat-icon>
+        </button>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
