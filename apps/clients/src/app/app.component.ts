@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MAIN_MENU_NAVIGATION } from './application/routing/navigation';
 
 @Component({
   selector: 'dev-root',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'clients';
+  navigation = MAIN_MENU_NAVIGATION;
 }
