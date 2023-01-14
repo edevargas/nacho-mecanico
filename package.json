@@ -16,7 +16,7 @@
     "serve:clients": "ng serve clients --port 4300 --open",
     "serve:all": "concurrently \"npm run serve:api\" \"npm run serve:dashboard\" \"npm run serve:clients\""
   },
-  "private": true,
+  "private": false,
   "dependencies": {
     "@angular/animations": "14.2.1",
     "@angular/cdk": "^14.2.1",
